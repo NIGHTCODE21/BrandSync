@@ -1,0 +1,37 @@
+"Why did you create a Mongoose Schema?"
+"A Mongoose schema defines the structure and validation rules for documents stored in MongoDB. It ensures data consistency by specifying fields, their data types, required constraints, default values, and validation."
+
+Frontend
+      │
+      ▼
+POST /login
+      │
+      ▼
+Express Route
+      │
+      ▼
+Controller
+      │
+      ▼
+MongoDB
+      │
+      ▼
+bcrypt.compare()
+      │
+      ▼
+JWT.sign()
+      │
+      ▼
+Frontend stores token
+      │
+      ▼
+Bearer Token
+      │
+      ▼
+Protected Route
+      │
+      ▼
+jwt.verify()
+      │
+      ▼
+Access Granted ✅

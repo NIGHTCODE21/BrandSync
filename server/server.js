@@ -2,7 +2,11 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
+
 const connectDB = require("./config/db");
+const authRoutes = require("./routes/authRoutes");
+const { protect } = require("./middleware/authMiddleware");
+
 
 const app = express();
 
@@ -13,9 +17,20 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+
+app.use("/api/auth", authRoutes);
+
 // Test Route
 app.get("/", (req, res) => {
   res.send("🚀 BrandSync Backend is Running!");
+});
+
+app.get("/api/protected", protect, (req, res) => {
+    res.json({
+        success: true,
+        message: "Welcome! This is a protected route.",
+        user: req.user,
+    });
 });
 
 const PORT = process.env.PORT || 5000;
