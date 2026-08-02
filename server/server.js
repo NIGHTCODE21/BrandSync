@@ -7,6 +7,9 @@ const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 const { protect } = require("./middleware/authMiddleware");
 const clientRoutes = require("./routes/clientRoutes");
+const projectRoutes = require("./routes/projectRoutes");
+const analyticsRoutes = require("./routes/analyticsRoutes");
+const settingsRoutes = require("./routes/settingsRoutes");
 
 
 const app = express();
@@ -21,6 +24,10 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/clients", clientRoutes);
+app.use("/api/projects", projectRoutes);
+app.use("/api/analytics", analyticsRoutes);
+app.use("/api/settings", settingsRoutes);
+
 
 // Test Route
 app.get("/", (req, res) => {

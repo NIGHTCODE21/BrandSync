@@ -136,6 +136,23 @@ const deleteClient = async (req, res) => {
   }
 };
 
+// Get Client Count
+const getClientCount = async (req, res) => {
+  try {
+    const count = await Client.countDocuments();
+
+    res.status(200).json({
+      success: true,
+      count,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 
 
 module.exports = {
@@ -144,4 +161,5 @@ module.exports = {
   getClientById,
   updateClient,
   deleteClient,
+  getClientCount,
 };
