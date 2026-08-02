@@ -16,7 +16,7 @@ function Settings() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/settings",
+        `${import.meta.env.VITE_API_URL}/api/settings`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,7 +36,7 @@ function Settings() {
       const token = localStorage.getItem("token");
 
       await axios.put(
-        "http://localhost:5000/api/settings",
+        `${import.meta.env.VITE_API_URL}/api/settings`,
         profile,
         {
           headers: {
@@ -48,7 +48,7 @@ function Settings() {
       alert("Profile updated successfully!");
 
       const res = await axios.put(
-  "http://localhost:5000/api/settings",
+  `${import.meta.env.VITE_API_URL}/api/settings`,
   profile,
   {
     headers: {

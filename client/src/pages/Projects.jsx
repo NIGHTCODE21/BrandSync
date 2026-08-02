@@ -18,7 +18,7 @@ function Projects() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/projects",
+        `${import.meta.env.VITE_API_URL}/api/projects`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -57,7 +57,8 @@ const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
 
     await axios.delete(
-      `http://localhost:5000/api/projects/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/projects/${id}`,
+
       {
         headers: {
           Authorization: `Bearer ${token}`,

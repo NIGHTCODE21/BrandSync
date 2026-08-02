@@ -27,7 +27,7 @@ useEffect(() => {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/clients",
+       `${import.meta.env.VITE_API_URL}/api/clients`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -79,7 +79,7 @@ const handleSubmit = async () => {
 
 if (project) {
   await axios.put(
-    `http://localhost:5000/api/projects/${project._id}`,
+    `${import.meta.env.VITE_API_URL}/api/projects/${project._id}`,
     projectData,
     {
       headers: {
@@ -91,7 +91,7 @@ if (project) {
   alert("Project updated successfully");
 } else {
   await axios.post(
-    "http://localhost:5000/api/projects",
+     `${import.meta.env.VITE_API_URL}/api/projects`,
     projectData,
     {
       headers: {

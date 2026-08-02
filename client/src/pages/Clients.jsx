@@ -18,7 +18,7 @@ function Clients() {
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/clients",
+        `${import.meta.env.VITE_API_URL}/api/clients`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -44,7 +44,7 @@ function Clients() {
     const token = localStorage.getItem("token");
 
     await axios.delete(
-      `http://localhost:5000/api/clients/${id}`,
+      `${import.meta.env.VITE_API_URL}/api/clients/${client._id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

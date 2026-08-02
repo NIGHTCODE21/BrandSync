@@ -26,7 +26,7 @@ const { openProjectModal, setOpenProjectModal } = useOutletContext();
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        "http://localhost:5000/api/clients/count",
+        `${import.meta.env.VITE_API_URL}/api/clients/count`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -48,7 +48,7 @@ const { openProjectModal, setOpenProjectModal } = useOutletContext();
     const token = localStorage.getItem("token");
 
     const res = await axios.get(
-      "http://localhost:5000/api/projects/count",
+      `${import.meta.env.VITE_API_URL}/api/projects/count`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -69,7 +69,7 @@ const fetchProjectStatus = async () => {
     const token = localStorage.getItem("token");
 
     const res = await axios.get(
-      "http://localhost:5000/api/projects/status-counts",
+      `${import.meta.env.VITE_API_URL}/api/projects/status-counts`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -91,7 +91,7 @@ const fetchRecentProjects = async () => {
     const token = localStorage.getItem("token");
 
     const res = await axios.get(
-      "http://localhost:5000/api/projects",
+      `${import.meta.env.VITE_API_URL}/api/projects`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

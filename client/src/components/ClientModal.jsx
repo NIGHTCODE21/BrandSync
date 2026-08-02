@@ -47,7 +47,7 @@ const handleSubmit = async () => {
     if (client) {
       // Update Client
       await axios.put(
-        `http://localhost:5000/api/clients/${client._id}`,
+        `${import.meta.env.VITE_API_URL}/api/clients/${client._id}`,
         clientData,
         {
           headers: {
@@ -60,7 +60,7 @@ const handleSubmit = async () => {
     } else {
       // Create Client
       await axios.post(
-        "http://localhost:5000/api/clients",
+        `${import.meta.env.VITE_API_URL}/api/clients`,
         clientData,
         {
           headers: {
